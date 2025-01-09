@@ -138,6 +138,7 @@ module Kramdown
           code_attr = {}
           code_attr['class'] = "language-#{lang}" if lang
           "#{' ' * indent}<pre#{html_attributes(attr)}>" \
+            "<button onclick="({ target }) => navigator.clipboard.writeText(target.children.querySelector("code").innerText)">copy</button>" \
             "<code#{html_attributes(code_attr)}>#{result}\n</code></pre>\n"
         end
       end
